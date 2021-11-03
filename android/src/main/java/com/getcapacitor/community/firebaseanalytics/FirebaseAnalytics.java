@@ -12,6 +12,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import java.util.Iterator;
 import org.json.JSONObject;
+import org.json.JSONArray;
+import java.util.ArrayList;
 
 @NativePlugin(
   permissions = {
@@ -233,7 +235,35 @@ public class FirebaseAnalytics extends Plugin {
             bundle.putDouble(key, (Double) value);
           } else if (value instanceof Long) {
             bundle.putLong(key, (Long) value);
-          } else {
+          } else if (value instanceof JSONArray) { //Solution find in https://github.com/capacitor-community/firebase-analytics/issues/22
+
+          JSONArray items = (JSONArray) value;
+          ArrayList itemBundleList = new ArrayList();
+
+          for (int i = 0; i < items.length(); i++) {
+            Bundle itemBundle = new Bundle();
+            JSONObject itemParams = items.getJSONObject(i);
+            Iterator<String> itemKeys = itemParams.keys();
+
+            while (itemKeys.hasNext()) {
+              String itemKey = itemKeys.next();
+              Object itemValue = itemParams.get(itemKey);
+              if (itemValue instanceof String) {
+                itemBundle.putString(itemKey, (String) itemValue);
+              } else if (itemValue instanceof Integer) {
+                itemBundle.putInt(itemKey, (Integer) itemValue);
+              } else if (itemValue instanceof Double) {
+                itemBundle.putDouble(itemKey, (Double) itemValue);
+              } else if (itemValue instanceof Long) {
+                itemBundle.putLong(itemKey, (Long) itemValue);
+              }
+            }
+
+            itemBundleList.add(itemBundle);
+          }
+
+          bundle.putParcelableArrayList(key, itemBundleList);
+        } else {
             call.reject("value for " + key + " is missing");
           }
         }

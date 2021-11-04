@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     package = JSON.parse(File.read(File.join(File.dirname(__FILE__), 'package.json')))
 
-    s.name = 'CapacitorCommunityFirebaseAnalytics'
+    s.name = 'SquiseatFirebaseAnalytics'
     s.version = package['version']
     s.summary = package['description']
     s.license = package['license']

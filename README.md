@@ -18,6 +18,7 @@
 </p>
 
 ## About
+
 A fork of @capacitor-community/firebase-analytics@0.3.3, to resolve the issue indicated here [capacitor-community/firebase-analytics#22](https://github.com/capacitor-community/firebase-analytics/issues/22).
 
 ## Maintainers
@@ -73,6 +74,7 @@ public class MainActivity extends BridgeActivity {
       );
   }
 }
+
 ```
 
 ## Configuration
@@ -108,12 +110,7 @@ git checkout -b firebase-analytics
 ## Usage
 
 ```typescript
-// Must import the package once to make sure the web support initializes
-import "@squiseat/firebase-analytics";
-
-import { Plugins } from "@capacitor/core";
-
-const { FirebaseAnalytics } = Plugins;
+import { FirebaseAnalytics } from "@capacitor-community/firebase-analytics";
 
 /**
  * Platform: Web

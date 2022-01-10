@@ -19,7 +19,7 @@
 
 ## About
 
-A fork of @capacitor-community/firebase-analytics@0.3.3, to resolve the issue indicated here [capacitor-community/firebase-analytics#22](https://github.com/capacitor-community/firebase-analytics/issues/22).
+A fork of @capacitor-community/firebase-analytics@1.0.0, to resolve the issue indicated here [capacitor-community/firebase-analytics#22](https://github.com/capacitor-community/firebase-analytics/issues/22).
 
 ## Maintainers
 

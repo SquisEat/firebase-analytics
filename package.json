@@ -1,6 +1,6 @@
 {
   "name": "@squiseat/firebase-analytics",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A native plugin for firebase analytics.",
   "homepage": "https://github.com/capacitor-community/firebase-analytics",
   "main": "dist/plugin.cjs.js",
